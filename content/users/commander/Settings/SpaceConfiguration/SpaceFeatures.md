@@ -1,6 +1,8 @@
 Space features section allows to add additional details that can later be assigned to individual spaces. It will be visible within a booking module under the specific room numbers. 
  
 Space features can provide information regarding what type of view a room might have (e.g. street view, sea view), whether a room has a bath, shower or other amenities.
+
+The following items are present in the Space feature constructor: 
  
 **Name:** the name of the feature
  
