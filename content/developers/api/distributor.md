@@ -4,8 +4,6 @@ title: Distributor API (v1)
 
 The Distributor API allows external applications (generally known as booking widgets) to get information about offered rooms and products for given hotel, to check availability of those rooms and finally to create new reservations.
 
-**Note: usage of the Distributor API will incur a fee of 1% of the actualised revenue booked at the hotel/hostel. Ensure that prior to integrating your booking engine, the commercials have been agreed and signed by the hotel & Mews.**
-
 First of all, please have a look at [API Guidelines](../api.html) which describe general usage guidelines of MEWS APIs.
 
 ## Contents
