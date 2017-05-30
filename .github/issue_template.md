@@ -8,11 +8,11 @@ Before you open a new issue, please, make sure you have checked the Distributor 
 - **URL**: 
 - **Browser (version)**: 
 - **Steps to reproduce**: 
-    1. 
-    2. 
-    3. 
-    4. 
-    5. 
+1. 
+2. 
+3. 
+4. 
+5. 
  
 <!-- Provide the code or the screenshots in the field below: -->
 #### Attachments:
