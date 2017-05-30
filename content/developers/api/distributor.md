@@ -16,6 +16,7 @@ First of all, please have a look at [API Guidelines](../api.html) which describe
     - [Get Reservations Pricing](#get-reservations-pricing)
     - [Get Braintree Client Token](#get-braintree-client-token)
     - [Get Adyen Client Token](#get-adyen-client-token)
+    - [Get Stripe Client Token](#get-stripe-client-token)
     - [Create Reservation Group](#create-reservation-group)
     - [Get Reservation Group](#get-reservation-group)
 - [Images](#images)
@@ -194,7 +195,7 @@ If the hotel does not use any payment gateway, the value is null. If it does, th
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `PaymentGatewayType` | string | required | Type of the payment gateway (`Braintree` or `Adyen`). |
+| `PaymentGatewayType` | string | required | Type of the payment gateway (`Braintree`, `Adyen` or `Stripe`). |
 | `IsMerchant` | boolean | required | Whether the gateway is processed through Mews Merchant or not. |
 | `SupportedCreditCardTypes` | array of string | required | The list of supported credit cards, should be used to enhance UX. |
 
@@ -527,10 +528,35 @@ Adyen requires a public key and a server utc time to be used for client-side cre
 }
 ```
 
+### Get Stripe Client Token
+
+Stripe requires a publishable key to be used for client-side credit card encryption. In case the hotel uses Stripe as a payment gateway, you need to obtain it to before processing payment.
+
+#### Request `[PlatformAddress]/api/distributor/v1/payments/getStripeClientToken`
+
+```json
+{
+    "Client": "My Client 1.0.0",
+    "HotelId": "8dbb4b86-e6c5-4282-a996-e823afeef343"
+}
+```
+
 | Property | Type | | Description |
 | --- | --- | --- | --- |
-| `NowUtc` | string | required | Server time. |
-| `PublicKey` | string | required | Adyen Public key. |
+| `Client` | string | required | Identification of the client as described in [Authorization](#authorization). |
+| `HotelId` | string | required | Unique identifier of hotel. |
+
+#### Response
+
+```json
+{
+    "PublishableKey": "..."
+}
+```
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `PublishableKey` | string | required | Stripe Publishable key. |
 
 ### Create Reservation Group
 
@@ -737,6 +763,7 @@ To obtain `PaymentGatewayData`, you have to use client side encryption library p
 
 - [Braintree](https://github.com/braintree/braintree-web)
 - [Adyen](https://github.com/Adyen/CSE-JS)
+- [Stripe](https://stripe.com/docs/stripe.js)
 
 ## Environments
 
