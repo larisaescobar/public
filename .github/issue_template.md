@@ -1,4 +1,4 @@
-Before you open a new issue, please, make sure you have checked the [Distributor release notes](https://www.mewssystems.com/release-notes/), [Developer guide](http://mewssystems.github.io/public/content/developers.html), as well as [resolved and open issues](https://github.com/MewsSystems/public/issues?utf8=✓&q=is%3Aissue).
+Before you open a new issue, please, make sure you have checked the Distributor release notes, Developer guide, as well as resolved and open issues. The links can be found in the guidelines above. 
  
 <!-- Description of the issue: -->
  
