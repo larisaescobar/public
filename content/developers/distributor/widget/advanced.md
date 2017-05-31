@@ -5,7 +5,7 @@ ordering: 20
 
 ### Full options example
 
-Example with all possible options and their default values follows. To get further informations about options and api call, see [reference](./reference.html).
+Example with all possible options and their default values follows. To get further information about the options and an API call, see the [reference](./reference.html).
 
 **Important: This is just an example, do not copy this directly to your website!**
 
@@ -64,13 +64,13 @@ Mews.Distributor({
 ~~~
 
 #### Note
-See that you have just one `<script>` tag containing `Mews.distributorEmbed` call in your page.
+See that you have just one `<script>` tag containing `Mews.distributorEmbed` call on your page.
 
 ### Deeplinks
 
-Distributor recognizes a set of parameteres passed to it in URL query. This allows you to deeplink into booking engine from other websites. **Important: This should not be used as a standard way to open Distributor from your own website**
+Distributor recognises a set of parameteres passed to it in a URL query. This allows you to deeplink into booking engine from other websites. **Important: This should not be used as a standard way to open Distributor from your own website**
 
-Recognized parameters are:
+Recognised parameters are:
 
 | Name | Description
 | --- | --- |
@@ -82,7 +82,7 @@ Recognized parameters are:
 
 #### Examples
 
-- presets start date, voucher code and language, but Distributor stays closed
+- presets a start date, voucher code and language, but Distributor stays closed
 ```
 http://www.yourwebsite.com/?mewsStart=2015-01-01&mewVoucherCode=special-discount&language=en-US
 ```
@@ -92,24 +92,24 @@ http://www.yourwebsite.com/?mewsStart=2015-01-01&mewVoucherCode=special-discount
 http://www.yourwebsite.com/?mewsEnterpriseId=aaaa-bbbb-cccc-dddd-eeeeeeee&mewsStart=2015-01-01&mewsEnd=2015-01-02
 ```
 
-- opens Distributors and start on the Rates step, given that RoomTypeId is valid and that room is available for given dates
+- opens Distributor and starts on the Rates step, given that RoomTypeId is valid and the room is available for the given dates
 ```
 http://www.yourwebsite.com/?mewsEnterpriseId=aaaa-bbbb-cccc-dddd-eeeeeeee&mewsStart=2015-01-01&mewsEnd=2015-01-02&mewsRoomTypeId=mmmm-nnnn-oooo-pppppp
 ```
 
 ### Payment Gateways
 
-Payement gateway is used to safely collect information about customer's credit card. Configuration is done once, when hotel is set up, and Distributor will use it automatically. Currently Distributor supports these gateways:
+Payement gateway is used to safely collect information about a customer's credit card. A configuration is done once, when the hotel is set up. Distributor would use it automatically. Currently Distributor supports these gateways:
 
 - [Braintree](https://www.braintreepayments.com/)
 - [Adyen](https://www.adyen.com/home)
 - Mews Merchant
 
-Using payment gateway is not mandatory though as reservations can be created even without providing credit card information.
+Using payment gateway is not mandatory, as reservations can be created without providing a credit card information.
 
 **Important:**
-PCI Security Standard requires you to use **SSL Certificate** on you website in order to be allowed collecting any payments info, which is happening when using Braintree or Adyen gateway.
+PCI Security Standard requires you to use **SSL Certificate** on your website to be allowed to collect any payments info. This happens when using Braintree or Adyen gateways.
 
 #### Mews Merchant
 
-When using the Mews Merchant gateway integration in Distributor on your website, the customer will be redirected to a mirroring Distributor hosted at https://wwww.mews.li/ just before entering payment details. This is required when using the Mews Merchant. When closing the Distributor, the customer will be redirected back to your website
+When using the Mews Merchant gateway integration in Distributor on your website, a customer will be redirected to a mirroring Distributor hosted at https://wwww.mews.li/ just before entering their payment details. This is a requirement when using Mews Merchant. When closing the Distributor, the customer will be redirected back to your website
