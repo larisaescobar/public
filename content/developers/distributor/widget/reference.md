@@ -18,17 +18,17 @@ ordering: 30
 | <a name="adultCount"></a>adultCount | `number` | `2` | Default value for an adult count in a rate selection.
 | <a name="childCount"></a>childCount | `number` | `0` | Default value for a child count in a rate selection.
 | <a name="daysInterval"></a>daysInterval | `number` | `2` | Default interval (in days) between a start date and an end date.
-| <a name="rooms"></a>rooms | `Array` | `null` | List of guids of room types to display in Distributor. If not set, all rooms are displayed.<br><br> You can get guid of a room type from the room type's detail page in Commander. The page can be found on the Room criteria page (under Settings > "Your hotel's name" > Room criteria ) by selecting a Room type criterion, and then selecting a corresponding room type from the side menu. The guid is listed there as Identifier.<br><br> Order in which room types will be displayed is dependant on the order of guids inside of the array.
-| <a name="hideSpecialRequests"></a>hideSpecialRequests | `boolean` | `false` | Hides the special requests field in checkout form.
+| <a name="rooms"></a>rooms | `Array` | `null` | A list of guids of the room types to display in Distributor. If not set, all rooms are displayed.<br><br> You can get a guid of a room type from the room type's detail page in Commander. The page can be found on the Room criteria page (under Settings > "Your hotel's name" > Room criteria ) by selecting the Room type criterion, and then selecting a corresponding room type from the side menu. The guid is listed there as Identifier.<br><br> Order in which room types will be displayed is dependant on the order of guids inside of the array.
+| <a name="hideSpecialRequests"></a>hideSpecialRequests | `boolean` | `false` | Hides the special requests field in the checkout form.
 | <a name="showRateCompare"></a>showRateCompare | `boolean` | `false` | Enables the information bar on the second page of a booking that lists competitor prices.
-| <a name="competitors"></a>competitors | `Array of string` | `['Booking.com', 'Expedia.com', 'HRS.com']` | An array of competitor names to be shown in rate comparer. Max 3 names are used.
-| <a name="introVideoSrc"></a>introVideoSrc | `string` | null | An URL link to optional intro video, which will be displayed instead of the intro image. The video must be publicly available, and it should be in *MPEG4* format (`.mp4`) to work in most of the modern browsers ([example](http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4)). The video will be displayed only on big enough screens. 
-| <a name="theme"></a>theme | `object` | `{}` | an object used for setting custom theme values. See next [customization](#customization) for more info.
+| <a name="competitors"></a>competitors | `Array of string` | `['Booking.com', 'Expedia.com', 'HRS.com']` | An array of competitor names to be shown in the rate comparer. Max 3 names are used.
+| <a name="introVideoSrc"></a>introVideoSrc | `string` | null | A URL link to optional intro video, which will be displayed instead of the intro image. The video must be publicly available, and it should be in the *MPEG4* format (`.mp4`) to work on the most of modern browsers ([example](http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4)). The video will be displayed only on screens that are big enough. 
+| <a name="theme"></a>theme | `object` | `{}` | An object used for setting custom theme values. See [customization](#customization) for more info.
 | <a name="gtmContainerId"></a>gtmContainerId | `string` | `null` | A Google Tag Manager container id is a string associated with your container in the `GTM-XXXX` format. More about how to find it is [here](https://support.google.com/tagmanager/answer/6103696?hl=en#AddingTheContainerSnippet).
 
 ### Customization
 
-Distributor Edge has all styles written in javascript and bundled into the script. This way we can limit possibility of clashes when it's included into your website. To allow customization, we have the `theme` option, taking your custom values. Currently supported are:
+Distributor Edge has all styles written in javascript and bundled into the script. This way we can limit a possibility of clashes when it's included into your website. To allow customization, we have the `theme` option, taking your custom values. Currently supported are:
 
 | Name | Type | Description
 | --- | --- | --- |
@@ -83,7 +83,7 @@ Sets a new voucher code value.
 #### setRooms(rooms)
 - `rooms` Type: `Array` - The list of guids of rooms to be displayed (see [`rooms`](#rooms) option for more details)
 
-Sets a new list of the displayed room types, overwriting the initial rooms option value. The currently loaded availability list is not affected.
+Sets a new list of the displayed room types, overwriting the initial Rooms option value. The currently loaded availability list is not affected.
 
 ### Only Single mode API calls
 
