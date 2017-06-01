@@ -85,7 +85,7 @@ Also, the account may need to have Client Side Encryption Key generated. Make su
 
 ### Notifications
 
-This has to be configured for each bank account in Adyen.
+This has to be configured **for each** bank account in Adyen that has corresponding enabled payment gateway account in Mews.
 
 1. Select account -> Settings -> Server Communication -> Standard Notification
 2. Set URL to `https://www.mews.li/Api/Adyen/v1/notification/process`
@@ -93,11 +93,12 @@ This has to be configured for each bank account in Adyen.
 4. Set Method to `json`.
 5. Uncheck `Populate SOAP Action headers`.
 6. Set `UserName` and `Password` from MEWS from the corresponding `Merchant account`.
-7. Click Test
+7. Open Additional Settings and enable `Include the originalReference for CHARGEBACK_REVERSED notifications` option.
+8. Click Test
    - It should should show list of messages with code 200, which means success.
    - If not credentials or url is wrong, double check the values and repeat this step until success.
-8. Check "Active" box.
-9. Save.
+9. Check "Active" box.
+10. Save.
 
 #### Test Transactions
 
