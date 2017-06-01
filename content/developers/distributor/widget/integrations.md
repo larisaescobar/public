@@ -39,7 +39,7 @@ If you want to track multiple events with one Trigger, you can easily use regex 
 
 #### Universal Analytics
 
-You can track all the events for further statistical computations about behaviour of your customers. Use the Google Universal Analytics tag with thr `Event` track type. The Trigger should be a regex grouping of all the events you want to track (to track *all* events, you can use `^distributor` regex as described [here](#triggers)).
+You can track all the events for further statistical computations about behaviour of your customers. Use the Google Universal Analytics tag with the `Event` track type. The Trigger should be a regex grouping of all the events you want to track (to track *all* events, you can use `^distributor` regex as described [here](#triggers)).
 
 ![events_tag](./img/eventsTag.png) 
 
@@ -51,11 +51,11 @@ You can track transactions with the Google Universal Analytics tag with the `Tra
 
 ##### Tracking with Mews Merchant and source attribution
 
-When you have Mews Merchant set up, a payment by a customer is legally required to happen on our domain. Therefore, all the transactions during a checkout are attributed to Mews domain. This is an unfortunate limitation of the checkout process, that we cannot currently overcome.
+When you have Mews Merchant set up, a payment by a customer is legally required to happen on our domain. Therefore, all the transactions during a checkout are attributed to Mews domain. This is an unfortunate limitation of the checkout process that we cannot currently overcome.
 
 ### Troubleshooting
 
-#### There are no events or ecommerce transactions tracked after redirect to Mews Merchant page
+#### There are no events or ecommerce transactions tracked after a redirect to the Mews Merchant page
 
 You have probably included the container in your website, however, you haven't set the container id in Distributor. Meaning that after the redirect, Distributor will not know anything about your container. You should use [`gtmContainerId`](#gtmContainerId).
 
