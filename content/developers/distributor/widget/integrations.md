@@ -15,13 +15,13 @@ The main and only source of Distributor integrations with 3rd party tags and tra
 
 You can enable it by passing your container's id in the [`gtmContainerId`](./reference.html#gtmContainerId) option. The id has the `GTM-XXXXXX` format and you can get it in Google Tag Manager.
 
-**Important: It is not enough to just copy and paste the Google Tag Manager container code into a website, you have to use the 'gtmContainerId' option. However, if you use the container on your website, Distributor will connect to it and won't create a new one.**
+**Important: It is not enough to just copy and paste the Google Tag Manager container code to a website, you have to use the 'gtmContainerId' option. However, if you use the container on your website, Distributor will connect to it and will not create a new one.**
 
 ### Migrating to Google Tag Manager
 
 In previous versions, Distributor supported direct integrations with Google Analytics and Google AdWords. These legacy integrations still remain functional for a backward compatibility, but will be removed completely in the near future. We strongly suggest you migrate them to Google Tag Manager.
 
-**Important: If you enable Google Tag Manager in Distributor, it will take precedence over any legacy integration, and those will not be triggered. It means, that once you enable Google Tag Manager, you will have to migrate all of your integrations to it!**
+**Important: If you enable Google Tag Manager in Distributor, it will take precedence over any legacy integration, and those will not be triggered. Meaning that once you enable Google Tag Manager, you will have to migrate all of your integrations to it!**
 
 ### Triggers
 
@@ -39,7 +39,7 @@ If you want to track multiple events with one Trigger, you can easily use regex 
 
 #### Universal Analytics
 
-You can track all the events for further statistical computations about behaviour of your customers. Use the Google Universal Analytics tag with `Event` track type. The Trigger should be a regex grouping of all the events you want to track (to track *all* events, you can use `^distributor` regex as described [here](#triggers)).
+You can track all the events for further statistical computations about behaviour of your customers. Use the Google Universal Analytics tag with thr `Event` track type. The Trigger should be a regex grouping of all the events you want to track (to track *all* events, you can use `^distributor` regex as described [here](#triggers)).
 
 ![events_tag](./img/eventsTag.png) 
 
@@ -51,73 +51,73 @@ You can track transactions with the Google Universal Analytics tag with the `Tra
 
 ##### Tracking with Mews Merchant and source attribution
 
-When you have Mews Merchant set up, a payment by a customer is legally required to happen on our domain. Therefore, all the transactions during a checkout are attributed to Mews domain. This is an unfortunate limitation of the checkout process that we cannot currently overcome.
+When you have Mews Merchant set up, a payment by a customer is legally required to happen on our domain. Therefore, all the transactions during a checkout are attributed to Mews domain. This is an unfortunate limitation of the checkout process, that we cannot currently overcome.
 
 ### Troubleshooting
 
-#### There are no events nor ecommerce transactions tracked after redirect to Mews Merchant page
+#### There are no events or ecommerce transactions tracked after redirect to Mews Merchant page
 
-You have probably included the container into your website, however you haven't set the container id into Distributor. This means that after the redirect, the Distributor will not know anything about your container. You should use [`gtmContainerId`](#gtmContainerId).
+You have probably included the container in your website, however, you haven't set the container id in Distributor. Meaning that after the redirect, Distributor will not know anything about your container. You should use [`gtmContainerId`](#gtmContainerId).
 
 #### I've set up the container correctly but there are still no events tracked
 
-If you've everything set up correctly and you still can't see events tracked, please ensure that you're not using any ads blocking or similar software in your browser. These tend to block out not only ads, but also tracking software like Google Tag Manager. Disabling the software for testing or adding your website to exceptions should solve the issue.
+If you have everything set up correctly and you still cannot see events tracked, please, ensure that you're not using any ad-blocking or similar software in your browser. They tend to block not only ads, but also tracking software like Google Tag Manager. Disabling the software for testing or adding your website to the exceptions should solve the issue.
 
-**Important:** If you're using Mews Merchant, you need to disable the software for mews.li domain too.
+**Important:** If you are using Mews Merchant, you need to disable the software for the mews.li domain too.
 
 #### The Tag Assistant Chrome extension shows me a warning about multiple installations, but I use only one
 
-Distributor includes our Mews Google Tag Manager container (id `GTM-M7JV35D`) to keep statistics in our own Google Analytics. We use those data for global Distributor performance measuring, to have an idea about performance in hotels that don't use Analytics and for ability to build our own statistics on top of the Analytics Api in Commander.
+Distributor includes our Mews Google Tag Manager container (id `GTM-M7JV35D`) to keep statistics in our own Google Analytics. We use that data for a global Distributor performance measuring, to have an idea about performance in hotels that don't use Analytics and for the ability to build our own statistics on top of the Analytics API in Commander.
 
-Having multiple installations is perfectly fine, if you keep common data layer name for all of them, which we do. See the official documentation for yourself: https://developers.google.com/tag-manager/devguide#multiple-containers
+Having multiple installations is perfectly fine, if you keep common data layer name for all of them, which we do. Please, see the official documentation: https://developers.google.com/tag-manager/devguide#multiple-containers
 
 ### Triggers Reference
 
-All events data are passed to Tag Manager through *dataLayer*. To use it in your tags, set up *Variable* with proper name as variable of the data layer like this:
+All events data is passed to Tag Manager through *dataLayer*. To use it in your tags, set up *Variable* with proper name as a variable of the data layer like this:
 
 ![variable](./img/variable.png)
 
-Each event is fired with standard set of data:
+Each event is fired with a standard set of data:
 
 | Data Layer Variable Name | Description
 | --- | --- |
 | eventName | Data Layer Variable Name of the event in readable form without prefix, i.e. `Step Dates`. |
 
-If a hotel is selected, information about it is also added to the event. (Note: The hotel is always selected in *Singlehotel* mode)
+If a hotel is selected, information about it is also added to the event. (Note: The hotel is always selected in the *Singlehotel* mode)
 
 | Data Layer Variable Name | Description
 | --- | --- |
 | hotelName | Data Layer Variable Name of the hotel |
 | hoteId | unique identifier of the hotel |
 
-Some events exposes additional data layer variables. These are described for each event separately.
+Some events expose additional data layer variables. They are described separately for each event.
 
 #### distributorLoaded
-The Distributor application was initialized (triggers once per session even with Merchant redirect).
+The Distributor application was initialized (triggers once per session even with a Merchant redirect).
 
 #### distributorOpened
-The Distributor was opened.
+Distributor was opened.
 
 #### distributorClosed
-The Distributor was closed.
+Distributor was closed.
 
 #### distributorStepDates
-A dates step was displayed.
+A Dates step was displayed.
 
 #### distributorStepHotels
-A hotels step was displayed.
+A Hotels step was displayed.
 
 #### distributorStepRooms
-A rooms step was displayed.
+A Rooms step was displayed.
 
 #### distributorStepRates
-A rates step was displayed.
+A Rates step was displayed.
 
 #### distributorStepSummary
-A summary step was displayed.
+A Summary step was displayed.
 
 #### distributorStepCheckout
-A checkout step was displayed.
+A Checkout step was displayed.
 
 #### distributorStepConfirmation
 A confirmation page was displayed.
@@ -127,17 +127,17 @@ A language code was changed.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| languageCode | Language code of selected language, i.e. `en-US`. |
+| languageCode | Language code of the selected language, i.e. `en-US`. |
 
 #### distributorStartDateSelected
-A start date of reservation was selected.
+A start date of the reservation was selected.
 
 | Data Layer Variable Name | Description
 | --- | --- |
 | startDate | Selected start date in ISO 8601 format YYYY-MM-DD, i.e. `2017-01-20`. |
 
 #### distributorEndDateSelected
-An end date of reservation was selected.
+An end date of the reservation was selected.
 
 | Data Layer Variable Name | Description
 | --- | --- |
@@ -148,7 +148,7 @@ A promo code was set.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| promoCode | Value of inserted promo code as string, i.e. `promo`. It is not validated. |
+| promoCode | Value of the inserted promo code as a string, i.e. `promo`. It is not validated. |
 
 #### distributorOfferedDatesSelected
 Alternative dates when there is no availability selected.
@@ -158,61 +158,61 @@ A room (or other space type) was selected.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| roomId | Guid of selected room. |
-| roomName | Data Layer Variable Name of selected room in hotel's default language. |
-| spaceType | Data Layer Variable Name of selected room's space type, one of `Room`, `Bed` or `Dorm`.  |
+| roomId | Guid of the selected room. |
+| roomName | Data Layer Variable Name of the selected room in the hotel's default language. |
+| spaceType | Data Layer Variable Name of the selected room's space type, one of `Room`, `Bed` or `Dorm`.  |
 
 #### distributorSpaceTypeCountChanged
-A number of selected "rooms" in order was changed.
+A number of the selected "rooms" in the order was changed.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| count | Number of selected space types. |
+| count | Number of the selected space types. |
 
 #### distributorRoomOccupancyChanged
-An occupation (adults and children counts) was changed for one room (or similar) space type.
+An occupation (adults and children counts) was changed for the one room (or similar) space type.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| roomIndex | Index of changed room. |
-| adultCount | Number of selected adults. |
-| childCount | Number of selected children. |
+| roomIndex | Index of the changed room. |
+| adultCount | Number of the selected adults. |
+| childCount | Number of the selected children. |
 
 #### distributorBedOccupancyChanged
-An occupation (adults and children counts) was changed for bed space type.
+An occupation (adults and children counts) was changed for the bed space type.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| adultCount | Number of selected adults. |
-| childCount | Number of selected children. |
+| adultCount | Number of the selected adults. |
+| childCount | Number of the selected children. |
 
 #### distributorProductAdded
-A product was added to an order.
+A product was added to the order.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| productId | Guid of added product. |
-| productName | Data Layer Variable Name of product in hotel's default language. |
+| productId | Guid of the added product. |
+| productName | Data Layer Variable Name of the product in the hotel's default language. |
 
 #### distributorProductRemoved
-A product was removed from an order.
+A product was removed from the order.
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| productId | Guid of removed product. |
-| productName | Data Layer Variable Name of product in hotel's default language. |
+| productId | Guid of the removed product. |
+| productName | Data Layer Variable Name of product in the hotel's default language. |
 
 #### distributorBookingFinished
-A booking was made. This event triggers once per reservation group made.
+A booking was made. This event triggers once every reservation group is made.
 
 | Data Layer Variable Name | Description
 | --- | --- |
 | reservationGroupId | id of the reservation group |
-| totalCost | total cost of the reservation group, in hotel's default currency |
+| totalCost | total cost of the reservation group, in the hotel's default currency |
 | currencyCode | hotel's default currency code in ISO format |
 
 #### distributorReservationCreated
-A reservation was created. This event triggers for each reservation made in the reservation group.
+A reservation was created. This event triggers when each reservation is made in the reservation group.
 
 | Data Layer Variable Name | Description
 | --- | --- |
@@ -227,5 +227,5 @@ A reservation was created. This event triggers for each reservation made in the 
 | reservation.startDate | start date of the reservation |
 | reservation.endDate | end date of the reservation |
 | reservation.nights | total nights spent |
-| reservation.cost | cost of the reservation in hotel's default currency |
+| reservation.cost | cost of the reservation in the hotel's default currency |
 
