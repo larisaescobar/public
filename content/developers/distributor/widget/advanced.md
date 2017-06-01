@@ -99,7 +99,7 @@ http://www.yourwebsite.com/?mewsEnterpriseId=aaaa-bbbb-cccc-dddd-eeeeeeee&mewsSt
 
 ### Payment Gateways
 
-Payement gateway is used to safely collect information about a customer's credit card. A configuration is done once, when the hotel is set up. Distributor would use it automatically. Currently Distributor supports these gateways:
+Payment gateway is used to safely collect information about a customer's credit card. A configuration is done once, when the hotel is set up. Distributor would use it automatically. Currently Distributor supports these gateways:
 
 - [Braintree](https://www.braintreepayments.com/)
 - [Adyen](https://www.adyen.com/home)
