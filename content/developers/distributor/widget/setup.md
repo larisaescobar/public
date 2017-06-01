@@ -49,7 +49,7 @@ If you need a more specific setup for opening Distributor, or you want to call s
 </script>
 ~~~
 
-To see a list of all available API calls, please consult [API](#api) section.
+To see a list of all available API calls, please consult [API](#API) section.
 
 Closing of Distributor is provided in the overlay by default, so you don't have to worry about that.
 
