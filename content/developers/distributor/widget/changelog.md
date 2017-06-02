@@ -3,7 +3,7 @@ title: Changelog
 ordering: 100
 ---
 
-#### 27/05/2017
+#### 01/06/2017
 
 * Fixed GTM tracking initialization after redirect to Merchant.
 
