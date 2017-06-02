@@ -3,6 +3,10 @@ title: Changelog
 ordering: 100
 ---
 
+#### 27/05/2017
+
+* Fixed GTM tracking initialization after redirect to Merchant.
+
 #### 26/05/2017
 
 * Hotfix of the GTM tracking bug.
