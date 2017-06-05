@@ -2,7 +2,7 @@
 title: Czech Republic Foreign Police Integration
 ---
 
-## Content
+## Contents
 
 - [Introduction](#introduction)
 - [Settings](#settings)
