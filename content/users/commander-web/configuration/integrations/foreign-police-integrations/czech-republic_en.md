@@ -55,7 +55,7 @@ Individual email addresses need to be separated by semicolons.
 
 [Customer profiles report](#report-profily-hostu) can be accessed directly from the homepage after logging in to Mews. Report shows the list of guests who are staying (or coming) in the selected time interval - depending on the selected report parameters. The correct filter for the Police report is the **1** day and the `Arrivals` mode.
 
-![Customer profiles report](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/Report.png)
+![Customer profiles report](img/Report.png)
 
 This is an example of the Customer profiles report. It shows that `John Smith` and `Last Name` are in the room `203`, `Nicolas Cage` is accommodated in the room `106`, a companion is not filled in (reservation is for 2 persons), and the room `206` is hosted by `Mena Suvari`.
 The report further states that:
@@ -95,7 +95,7 @@ There could be several different situations:
  2. Create a new guest and assign him into the reservation.
  3. First, you need to be aware of the difference between the “booking owner” and the “guest assigned” to the reservation. The owner is the one on whose behalf the reservation is created. It can even be someone who will be not accommodate in the hotel at all, just did a reservation for somebody else. The guest is someone who has arrived and who stays in the room. See picture:
 
-![Group module](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/GroupModule.png)
+![Group module](img/GroupModule.png)
 
 This picture shows how to resolve the third case - room `106`. `Nicolas Cage` is listed as the booking owner. You need to add his companion to the room by clicking `>` (marked in red). This adds the guest to the selected room. One guest can book more rooms, however, the system will not automatically assign him to all rooms as one guest can not be physically in more than one room. Therefore, it is necessary to assign the owner during a check-in process to the reservation (make it a guest). Again, you need to set up a check-in process in a way that prevents any issues in the future.
 
@@ -145,7 +145,7 @@ The generated reports must be uploaded to the Police [here](https://ubyport.poli
 
 Uploading a report is easy, just click on this button to select the right report and upload it.
 
-![UbyPort](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/UbyPort.PNG)
+![UbyPort](img/UbyPort.PNG)
 
 <a name="statement"></a>
 ### Statement from the Police of the Czech Republic
