@@ -7,16 +7,16 @@ title: Czech Republic Foreign Police Integration
 - [Introduction](#introduction)
 - [Settings](#settings)
 	- [Example setting](#example-setting)
-- [Customer Profiles Report](#customer-profiles-report)
+- [Customer profiles report](#customer-profiles-report)
    - [Incomplete report](#incomplete-report)
 - [How the automatic reporting works](#how-everything-works)
    - [What's happening in one day?](#one-day)
-   - [Which guests are reported?](#kdo-je-reportovan)
+   - [Which guests are reported?](#who-is-reported)
 - [UbyPort](#ubyport)
-   - [How to Upload a Report](#jak-nahrat-report)
-   - [Statement from the Police of the Czech Republic](#stanoviska)
-      - [How to Handle a Statement](#handle-a-Statement)
-- [Hints at the end](#rady-na-zaver)
+   - [How to Upload a Report](#how-to-upload-a-report)
+   - [Statement from the police of the Czech Republic](#statement)
+      - [How to handle a statement](#handle-a-Statement)
+- [Advice and comments to conclude](#hints)
 
 
 <a name="introduction"></a>
@@ -113,8 +113,8 @@ If the integration is set and approved by a Mews Support member, everything is r
 
 Let’s imagine it is **17.2.2014 at 9:00** and the following things happen (using settings from the Example setting)
 
-- Mews will send a message to check the Customer Profiles report for 16.2.2014.
-It is necessary to check that the arrival log for 16.2.2014 is 100% complete. 
+- Mews will send a message to check the Customer Profiles report for **16.2.2014**.
+It is necessary to check that the arrival log for **16.2.2014** is 100% complete. 
 If the report is not 100% complete, it needs to be completed within 24 hours (tomorrow Mews will generate and send the hotel as it is).
  
 - Mews generates the report for **the day before yesterday 15.2.2014** (which is supposed to be checked from the previous day) and sends it to the Recipient’s email.
@@ -130,3 +130,43 @@ At this moment, you need to upload the report manually. Police is working on an 
       
 *Note*: If the hotel did not receive an email with a report in the morning (please check SPAM folder), , it is also possible that the report was not sent or processed. In that case please contact MEWS Support.
 
+<a name="who-is-reported"></a>
+### Which guests are reported?
+
+According to the law, all foreign guests with a non-Czech nationality should be reported to the Foreign Police. Mews will include every guest with a completed nationality field other than Czech in the report, **regardless of whether the profile is filled in 100% or not**.
+
+<a name="ubyport"></a>
+## UbyPort
+
+The generated reports must be uploaded to the Police [here](https://ubyport.policie.cz).
+
+<a name="how-to-upload-a-report"></a>
+### How to Upload a Report
+
+Uploading a report is easy, just click on this button to select the right report and upload it.
+
+![UbyPort](img/UbyPort.PNG)
+
+<a name="statement"></a>
+### Statement from the Police of the Czech Republic
+
+The statement is a feedback from the Police of the Czech Republic about the report and the data contained therein. The opinion may be:
+ 
+ 1. All data is okay, the notification obligation **was** fulfilled.
+ 2. Some details are still missing (e.g. first name, date of birth), nevertheless the notification obligation **was** fulfilled.
+ 3. Serious errors were detected, so the reporting obligation **was not** met - In this case, you need to respond quickly. It is important, that the email is being daily checked and the missing data is corrected and immediately uploaded to the Police via UbyPort.
+ 
+<a name="handle-a-Statement"></a>
+#### How to Handle a Statement
+
+- If the Statement of the Czech Police is one of the first two mentioned above, everything is fine (in the second case, it is good to correct the missing data in the system) and there is no need to upload the report again.
+- In the third case, you need to fix the bug in the system and also upload the updated report to UbyPort - just select the appropriate day in the [Customer Profiles Report](#customer-profiles-report) (Note that the statements may be related to the reports which were sent at least 2 days ago - see [How the automatic reporting works](#how-everything-works)).
+
+<a name="hints"></a>
+## Advice and comments to conclude
+
+- Inform all receptionists to fill in all the necessary details at a check-in (First Name, Last Name, Date of Birth, Nationality, Passport and Visa Numbers, Place of Residence etc.) and correctly assign all guests to the rooms.
+- It is necessary to check a yesterday's report daily.
+- It is necessary to check [the statements](#statement) on a daily basis and, in the case of a negative statement, immediately fill in the missing data
+- Before the first run, you need to check the report for the last 2 days (from the launch date), because no reminder email will be sent.
+- The button in the [Customer profiles report](#customer-profiles-report) serves primarily to generate an updated report.
