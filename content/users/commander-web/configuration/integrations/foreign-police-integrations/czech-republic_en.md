@@ -95,7 +95,7 @@ There could be several different situations:
  2. Create a new guest and assign him into the reservation.
  3. First, you need to be aware of the difference between the “booking owner” and the “guest assigned” to the reservation. The owner is the one on whose behalf the reservation is created. It can even be someone who will be not accommodate in the hotel at all, just did a reservation for somebody else. The guest is someone who has arrived and who stays in the room. See picture:
 
-![Group Modul](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/GroupModule.png)
+![Group module](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/GroupModule.png)
 
 This picture shows how to resolve the third case - room `106`. `Nicolas Cage` is listed as the booking owner. You need to add his companion to the room by clicking `>` (marked in red). This adds the guest to the selected room. One guest can book more rooms, however, the system will not automatically assign him to all rooms as one guest can not be physically in more than one room. Therefore, it is necessary to assign the owner during a check-in process to the reservation (make it a guest). Again, you need to set up a check-in process in a way that prevents any issues in the future.
 
