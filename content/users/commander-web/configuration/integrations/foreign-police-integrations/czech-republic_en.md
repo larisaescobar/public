@@ -42,7 +42,7 @@ Mews “Foreign Police Integration” requires:
 <a name="example-setting"></a>
 ### Example setting
 
-![Example setting](https://github.com/MewsSystems/public/blob/gh-pages/content/users/commander-web/configuration/integrations/foreign-police-integrations/img/IntegrationDetail_en.png)
+![Example setting](img/IntegrationDetail_en.png)
 
 - E-mail addresses, to which reminder will be send are filled in in the Email Manager field.
 - E-mail addresses, to which report will be send are listed in Recipient Email box.
