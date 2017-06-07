@@ -749,7 +749,7 @@ Returns all reservations from the specified interval according to the time filte
     "Customers": [
         {
             "Address": null,
-            "BirthDateUtc": null,
+            "BirthDate": null,
             "CategoryId": null,
             "Email": null,
             "FirstName": "John",
@@ -1187,7 +1187,7 @@ Returns all customers from the specified interval according to the time filter (
     "Customers": [
         {
             "Address": null,
-            "BirthDateUtc": null,
+            "BirthDate": null,
             "BirthPlace": null,
             "CategoryId": null,
             "CreatedUtc": "2016-01-01T00:00:00Z",
@@ -1222,7 +1222,7 @@ Returns all customers from the specified interval according to the time filter (
 | `Gender` | string [Gender](#gender) | optional | Gender of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 alpha-2 country code (two letter country code) of the nationality. |
 | `LanguageCode` | string | optional | Language and culture code of the customers preferred language. E.g. `en-US` or `fr-FR`. |
-| `BirthDateUtc` | string | optional | Date of birth in UTC timezone in ISO 8601 format. |
+| `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Email` | string | optional | Email address of the customer. |
 | `Phone` | string | optional | Phone number of the customer (possibly mobile). |
@@ -1248,8 +1248,8 @@ Returns all customers from the specified interval according to the time filter (
 | Property | Type | | Description |
 | --- | --- | --- | --- |
 | `Number` | string | optional | Number of the document (e.g. passport number). |
-| `IssuanceUtc` | string | optional | Issuance date in UTC timezone in ISO 8601 format. |
-| `ExpirationUtc` | string | optional | Expiration date in UTC timezone in ISO 8601 format. |
+| `Issuance` | string | optional | Date of issuance in ISO 8601 format. |
+| `Expiration` | string | optional | Expiration date in ISO 8601 format. |
 
 ##### Address
 
@@ -1288,7 +1288,7 @@ Returns all customers with the specified ids.
     "Customers": [
         {
             "Address": null,
-            "BirthDateUtc": null,
+            "BirthDate": null,
             "BirthPlace": null,
             "CategoryId": null,
             "CreatedUtc": "2016-01-01T00:00:00Z",
@@ -1339,7 +1339,7 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
         {
             "Customer": {
                  "Address": null,
-                "BirthDateUtc": null,
+                "BirthDate": null,
                 "BirthPlace": null,
                 "CategoryId": null,
                 "CreatedUtc": "2016-01-01T00:00:00Z",
@@ -1451,7 +1451,7 @@ When it comes to dates in the customer data (e.g. birth date or passport expirat
     "LastName": "Doe",
     "Title": "Mister",
     "NationalityCode": "US",
-    "BirthDateUtc": "2000-01-01T12:00:00Z",
+    "BirthDate": "2000-01-01",
     "BirthPlace": "Prague, Czech Republic",
     "Email": "john@doe.com",
     "Phone": "00420123456789"
@@ -1465,7 +1465,7 @@ When it comes to dates in the customer data (e.g. birth date or passport expirat
 | `LastName` | string | required | Last name of the customer. |
 | `Title` | string [Title](#title) | optional | Title prefix of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 alpha-2 country code (two letter country code) of the nationality. |
-| `BirthDateUtc` | string | optional | Date of birth in UTC timezone in ISO 8601 format. |
+| `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
 | `BirthPlace` | string | optional | Place of birth. |
 | `Email` | string | optional | Email address of the customer. |
 | `Phone` | string | optional | Phone number of the customer (possibly mobile). |
@@ -1490,14 +1490,14 @@ Updates personal information of a customer. Note that if any of the fields is le
     "LastName": "Smith",
     "Title": "Mister",
     "NationalityCode": "US",
-    "BirthDateUtc": "2000-01-01T12:00:00Z",
+    "BirthDate": "2000-01-01",
     "BirthPlace": "Prague, Czech Republic",
     "Email": "john.smith@gmail.com",
     "Phone": "00420123456789",
     "Passport": {
         "Number": "123456",
-        "ExpirationUtc": "2020-01-01T12:00:00Z",
-        "IssuanceUtc": "2016-01-01T12:00:00Z"
+        "Expiration": "2020-01-01",
+        "Issuance": "2016-01-01"
     }
 }
 ```
@@ -1509,7 +1509,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
 | `Title` | string [Title](#title) | optional | New title. |
-| `BirthDateUtc` | string | optional | New birth date in UTC timezone in ISO 8601 format. |
+| `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BithPlace` | string | optional | New birth place. |
 | `NationalityCode` | string | optional | ISO 3166-1 alpha-2 country code (two letter country code) of the new nationality. |
 | `Email` | string | optional | New email address. |
@@ -2011,6 +2011,11 @@ We consider a space occupied if there is a reservation colliding with interval 1
     
 ## Changelog
 
+#### 7th July 2017 11:00 UTC
+
+- Deprecated `BirthDateUtc` on [Customer](#customer) and in [Update Customer](#update-customer) parameters. `BirthDate` without time specified should be used instead.
+- Deprecated `IssuanceUtc` and `ExpirationUtc` on [Document](#document). `Issuance` and `Expiration` without time should be used instead.
+
 #### 10th May 2017 23:00 UTC
 
 - Added `ServiceId` to [Accounting Item](#accounting-item).
@@ -2044,7 +2049,7 @@ We consider a space occupied if there is a reservation colliding with interval 1
 #### 26th January 2017 00:30 UTC
 
 - Extended [Customer](#customer) with `BirthPlace` (affected update customer and add customer operations).
-- Extended [Document](#document) with `IssuanceUtc`.
+- Extended [Document](#document) with `Issuance`.
 
 #### 18th January 2017 22:00 UTC
 
