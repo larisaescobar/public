@@ -54,6 +54,7 @@ First of all, please have a look at [API Guidelines](../api.html) which describe
         - [Get All Commands](#get-all-commands)
         - [Update Command](#update-command)
         - [Devices](#devices)
+ - [Websockets](#websockets)
  - [Use Cases](#use-cases)
  - [Changelog](#changelog)
 
@@ -1893,7 +1894,7 @@ Returns all commands the are still active from the client application point of v
 | --- | --- | --- | --- |
 | `Id` | string | required | Unique identifier of the device. |
 | `Name` | string | required | Name of the device. |
-| `Type` | string | optional | Type of the device. |
+| `Type` | string | optional | Type of the device. Details in the [devices](#devices) section. |
 
 ### Update Command
 
@@ -1924,11 +1925,7 @@ Empty object.
 
 ### Devices
 
-#### Printers
-
-Device type: `Printer`
-
-##### Command Data
+#### Printers (device type `Printer`)
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
@@ -1939,15 +1936,7 @@ Device type: `Printer`
 | `PrinterDriverName` | string | required | Name of the printer driver. |
 | `PrinterPortName` | string | required | Name of the printer port. |
 
-##### Command Result
-
-Not used.
-
-#### Key Cutters
-
-Device type: `KeyCutter`
-
-##### Command Data
+#### Key Cutters (device type `KeyCutter`)
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
@@ -1956,16 +1945,7 @@ Device type: `KeyCutter`
 | `GuestName` | string | required | Name of the reservation owner. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
 
-
-##### Command Result
-
-Not used.
-
-#### VisiOnline Key Cutters
-
-Device type: `VisiOnlineKeyCutter`
-
-##### Command Data
+#### VisiOnline Key Cutters (device type `VisiOnlineKeyCutter`)
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
@@ -1979,9 +1959,31 @@ Device type: `VisiOnlineKeyCutter`
 | `KeyCount` | number | required | Count of keys to cut. |
 | `Reservation` | [Reservation](#reservation) | optional | Additional information about the reservation. |
 
-##### Command Result
+## Websockets
 
-Not used.
+For use cases, when polling would be too resource consuming or not enough "real-time", websockets should be used. After successful connection, the client will start receiving events depending on configuration of the Connector integration in Commander.
+
+### Endpoint `[PlatformAddress]/ws/connector?AccessToken=[AccessToken]`
+
+Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. If `[PlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. Access token of the client application should be used as `[AccessToken]` in the endpoint address. It is the same access token as in the API operations, for further details, consult the [Authorization](#authorization) section.
+
+### Event
+
+```json
+{
+    "Type": "DeviceCommand",
+    "Id": "aa20961f-6d9e-4b35-ad25-071213530aec"
+}
+```
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Type` | string | required | Type of the event. |
+| `Id` | string | optional | Unique identifier of entity depending on the event type. |
+
+#### Device Command Events (event type `DeviceCommand`)
+
+If the Connector integration is configured to handle commands for some devices, it will receive events whenever a device command is updated. So if a command to one of the devices is created or updated, the client will receive 
 
 ## Use Cases
 
