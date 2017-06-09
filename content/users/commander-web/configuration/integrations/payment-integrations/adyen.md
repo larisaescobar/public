@@ -56,7 +56,7 @@ Once a contract with Adyen is signed, basic setup of the Adyen account is config
 2. Follow the setup below and setup this account on a hotel on test/demo.
 3. Run a couple of transactions (create gateway payments, refund some, ...). Something aroung 5 transactions is enough.
 	- There are test credit cards which should be used, e.g. `4111 1111 1111 1111` with expiry date `08/2018`. 
-	- List of all test credit cards is [here](https://www.adyen.com/home/support/knowledgebase/implementation-articles?article=kb_imp_17).
+	- List of all test credit cards is [here](https://docs.adyen.com/developers/payments/test-cards/test-card-numbers).
 4. Contact Adyen and let them know that we have entered the transactions and they should check if it is fine.
 5. Often much later, we get credentials for live environment
 6. Follow the setup below and setup this account on production environment.
