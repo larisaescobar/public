@@ -1961,29 +1961,39 @@ Empty object.
 
 ## Websockets
 
-For use cases, when polling would be too resource consuming or not enough "real-time", websockets should be used. After successful connection, the client will start receiving events depending on configuration of the Connector integration in Commander.
+For use cases, when polling would be too resource consuming or not enough "real-time", websockets should be used. After successful connection, the client will start receiving messages depending on configuration of the Connector integration in Commander.
 
 ### Endpoint `[PlatformAddress]/ws/connector?AccessToken=[AccessToken]`
 
 Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. If `[PlatformAddress]` starts with `http://` then `ws://` should be used. If it starts with `https://` then `wss://` should be used. Access token of the client application should be used as `[AccessToken]` in the endpoint address. It is the same access token as in the API operations, for further details, consult the [Authorization](#authorization) section.
 
-### Event
+### Message
 
 ```json
 {
-    "Type": "DeviceCommand",
-    "Id": "aa20961f-6d9e-4b35-ad25-071213530aec"
+    "Events":[
+        {
+            "Type": "DeviceCommand",
+            "Id": "2391a3df-1c61-4131-b6f8-c85b4234adcb"
+        }
+    ]
 }
 ```
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Events` | array of [Event](#event) | required | The events that happened during the connection. |
+
+#### Event
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
 | `Type` | string | required | Type of the event. |
 | `Id` | string | optional | Unique identifier of entity depending on the event type. |
 
-#### Device Command Events (event type `DeviceCommand`)
+##### Device Command Events (event type `DeviceCommand`)
 
-If the Connector integration is configured to handle commands for some devices, it will receive events whenever a device command is updated. So if a command to one of the devices is created or updated, the client will receive 
+If the Connector integration is configured to handle commands for some devices, it will receive events whenever a device command is updated. So if a command to one of the devices is created or updated, the client will receive an event with identifier of that command.
 
 ## Use Cases
 
@@ -2012,6 +2022,10 @@ When calculating occupancy, it is important to take hierarchy of spaces into acc
 We consider a space occupied if there is a reservation colliding with interval 18:00 to 24:00 on that day. So e.g. reservation from 14:00 to 16:00 is not calculated towards occupancy.
     
 ## Changelog
+
+#### 13th July 2017 21:00 UTC
+
+- Introduced [Websockets](#websockets) and first use case for device command events.
 
 #### 7th July 2017 11:00 UTC
 
