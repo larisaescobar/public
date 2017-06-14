@@ -1971,7 +1971,7 @@ Note that protocol of the `[PlatformAddress]` should be changed to `ws(s)://`. I
 
 ```json
 {
-    "Events":[
+    "Events": [
         {
             "Type": "DeviceCommand",
             "Id": "2391a3df-1c61-4131-b6f8-c85b4234adcb"
