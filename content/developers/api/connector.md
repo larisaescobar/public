@@ -1942,7 +1942,8 @@ Empty object.
 | --- | --- | --- | --- |
 | `StartUtc` | string | required | Reservation start. |
 | `EndUtc` | string | required | Reservation end. |
-| `GuestName` | string | required | Name of the reservation owner. |
+| `FirstName` | string | optional | First name of the reservation owner. |
+| `LastName` | string | required | Last name of the reservation owner. |
 | `LockIds` | array of string | required | Identifiers of locks/rooms the key should open. |
 
 #### VisiOnline Key Cutters (device type `VisiOnlineKeyCutter`)
