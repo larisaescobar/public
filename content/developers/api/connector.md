@@ -2025,11 +2025,11 @@ We consider a space occupied if there is a reservation colliding with interval 1
     
 ## Changelog
 
-#### 13th July 2017 21:00 UTC
+#### 13th June 2017 21:00 UTC
 
 - Introduced [Websockets](#websockets) and first use case for device command events.
 
-#### 7th July 2017 11:00 UTC
+#### 7th June 2017 11:00 UTC
 
 - Deprecated `BirthDateUtc` on [Customer](#customer) and in [Update Customer](#update-customer) parameters. `BirthDate` without time specified should be used instead.
 - Deprecated `IssuanceUtc` and `ExpirationUtc` on [Document](#document). `Issuance` and `Expiration` without time should be used instead.
