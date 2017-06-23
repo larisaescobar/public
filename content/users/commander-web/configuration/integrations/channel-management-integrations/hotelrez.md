@@ -10,8 +10,7 @@ HotelRez does not support any products (e.g. breakfast, parking etc). Products a
  
 A reservation import from HotelRez to Mews is not applicable, as it is a Global Distribution System, not a Channel Manager. 
  
- 
-These are the elements needed to set up an integration:
+<h3>These are the elements needed to set up an integration:</h3>
  
 **Name:** name of the integration for your convenience
  
