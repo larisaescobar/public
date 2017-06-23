@@ -9,7 +9,7 @@ The only rate HotelRez supports is a base rate (NN84), meaning that even if you 
 HotelRez does not support any products (e.g. breakfast, parking etc). Products are to be added via the Package rules in Mews Commander.
  
 A reservation import from HotelRez to Mews is not applicable, as it is a Global Distribution System, not a Channel Manager. 
- 
+
 <h3>These are the elements needed to set up an integration:</h3>
  
 **Name:** name of the integration for your convenience
