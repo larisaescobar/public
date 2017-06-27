@@ -81,13 +81,13 @@ Each event is fired with a standard set of data:
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| eventName | Data Layer Variable Name of the event in readable form without prefix, i.e. `Step Dates`. |
+| eventName | Name of the event in readable form without prefix, i.e. `Step Dates`. |
 
 If a hotel is selected, information about it is also added to the event. (Note: The hotel is always selected in the *Singlehotel* mode)
 
 | Data Layer Variable Name | Description
 | --- | --- |
-| hotelName | Data Layer Variable Name of the hotel |
+| hotelName | name of the hotel |
 | hoteId | unique identifier of the hotel |
 
 Some events expose additional data layer variables. They are described separately for each event.
@@ -150,6 +150,21 @@ A promo code was set.
 | --- | --- |
 | promoCode | Value of the inserted promo code as a string, i.e. `promo`. It is not validated. |
 
+#### distributorAvailabilityLoaded
+Availability of hotel was loaded.
+
+| Data Layer Variable Name | Description
+| --- | --- |
+| availableRooms | Array of available rooms. |
+
+Each item in the `availableRooms` array contains following data:
+
+| Name | Description
+| --- | --- |
+| roomName | Name of the room. |
+| roomId | Guid of the room. |
+| availableRateIds | List of available rate ids for the room |
+
 #### distributorOfferedDatesSelected
 Alternative dates when there is no availability selected.
 
@@ -159,8 +174,8 @@ A room (or other space type) was selected.
 | Data Layer Variable Name | Description
 | --- | --- |
 | roomId | Guid of the selected room. |
-| roomName | Data Layer Variable Name of the selected room in the hotel's default language. |
-| spaceType | Data Layer Variable Name of the selected room's space type, one of `Room`, `Bed` or `Dorm`.  |
+| roomName | Name of the selected room in the hotel's default language. |
+| spaceType | Name of the selected room's space type, one of `Room`, `Bed` or `Dorm`.  |
 
 #### distributorSpaceTypeCountChanged
 A number of the selected "rooms" in the order was changed.
@@ -192,7 +207,7 @@ A product was added to the order.
 | Data Layer Variable Name | Description
 | --- | --- |
 | productId | Guid of the added product. |
-| productName | Data Layer Variable Name of the product in the hotel's default language. |
+| productName | Name of the product in the hotel's default language. |
 
 #### distributorProductRemoved
 A product was removed from the order.
@@ -200,7 +215,7 @@ A product was removed from the order.
 | Data Layer Variable Name | Description
 | --- | --- |
 | productId | Guid of the removed product. |
-| productName | Data Layer Variable Name of product in the hotel's default language. |
+| productName | Name of product in the hotel's default language. |
 
 #### distributorBookingFinished
 A booking was made. This event triggers once every reservation group is made.
@@ -223,7 +238,7 @@ A reservation was created. This event triggers when each reservation is made in 
 | reservation.id | id of the reservation |
 | reservation.rateId | if of the rate of the reservation |
 | reservation.number | confirmation number of the reservation |
-| reservation.roomName | Data Layer Variable Name of the room|
+| reservation.roomName | name of the room|
 | reservation.startDate | start date of the reservation |
 | reservation.endDate | end date of the reservation |
 | reservation.nights | total nights spent |
