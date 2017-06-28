@@ -28,7 +28,7 @@ ordering: 30
 
 ### Customization
 
-Distributor Edge has all styles written in javascript and bundled into the script. This way we can limit a possibility of clashes when it's included into your website. To allow customization, we have the `theme` option, taking your custom values. Currently supported are:
+Distributor has all styles written in javascript and bundled into the script. This way we can limit a possibility of clashes when it's included into your website. To allow customization, we have the `theme` option, taking your custom values. Currently supported are:
 
 | Name | Type | Description
 | --- | --- | --- |
