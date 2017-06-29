@@ -447,10 +447,10 @@ Raturns all services offered by the enterprise.
             "Name": "Restaurant",
             "StartTime": null,
             "Promotions": {
-                "BeforeCheckIn": false
-                "AfterCheckIn": false
-                "DuringStay": false
-                "BeforeCheckOut": false
+                "BeforeCheckIn": false,
+                "AfterCheckIn": false,
+                "DuringStay": false,
+                "BeforeCheckOut": false,
                 "AfterCheckOut": false
             }
         },
@@ -461,10 +461,10 @@ Raturns all services offered by the enterprise.
             "Name": "Accommodation",
             "StartTime": "PT14H",
             "Promotions": {
-                "BeforeCheckIn": false
-                "AfterCheckIn": false
-                "DuringStay": false
-                "BeforeCheckOut": false
+                "BeforeCheckIn": false,
+                "AfterCheckIn": false,
+                "DuringStay": false,
+                "BeforeCheckOut": false,
                 "AfterCheckOut": false
             }
         }
@@ -529,10 +529,10 @@ Raturns all products offered together with the specified services.
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "ShortName": "BFST",
             "Promotions": {
-                "BeforeCheckIn": false
-                "AfterCheckIn": false
-                "DuringStay": false
-                "BeforeCheckOut": false
+                "BeforeCheckIn": false,
+                "AfterCheckIn": false,
+                "DuringStay": false,
+                "BeforeCheckOut": false,
                 "AfterCheckOut": false
             }
         }
@@ -927,6 +927,7 @@ Returns all reservations from the specified interval according to the time filte
             "NationalityCode": "US",
             "Passport": null,
             "Phone": "00420123456789",
+            "SecondLastName": null,
             "Title": null
         }
     ],
@@ -1397,6 +1398,7 @@ Returns all customers from the specified interval according to the time filter (
             "NationalityCode": "US",
             "Passport": null,
             "Phone": "00420123456789",
+            "SecondLastName": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z"
         }
@@ -1415,6 +1417,7 @@ Returns all customers from the specified interval according to the time filter (
 | `Id` | string | required | Unique identifier of the customer. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
+| `SecondLastName` | string | optional | Second last name of the customer. |
 | `Title` | string [Title](#title) | optional | Title prefix of the customer. |
 | `Gender` | string [Gender](#gender) | optional | Gender of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 alpha-2 country code (two letter country code) of the nationality. |
@@ -1498,6 +1501,7 @@ Returns all customers with the specified ids.
             "NationalityCode": "US",
             "Passport": null,
             "Phone": "00420123456789",
+            "SecondLastName": null,
             "Title": null,
             "UpdatedUtc": "2016-01-01T00:00:00Z"
         }
@@ -1549,6 +1553,7 @@ Searches for customers that are active at the moment in the enterprise (e.g. com
                 "NationalityCode": "US",
                 "Passport": null,
                 "Phone": "00420123456789",
+                "SecondLastName": null,
                 "Title": null,
                 "UpdatedUtc": "2016-01-01T00:00:00Z"
             },
@@ -1646,6 +1651,7 @@ When it comes to dates in the customer data (e.g. birth date or passport expirat
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "FirstName": "John",
     "LastName": "Doe",
+    "SecondLastName": "the Second",
     "Title": "Mister",
     "NationalityCode": "US",
     "BirthDate": "2000-01-01",
@@ -1660,6 +1666,7 @@ When it comes to dates in the customer data (e.g. birth date or passport expirat
 | `AccessToken` | string | required | Access token of the client application. |
 | `FirstName` | string | optional | First name of the customer. |
 | `LastName` | string | required | Last name of the customer. |
+| `SecondLastName` | string | optional | Second last name of the customer. |
 | `Title` | string [Title](#title) | optional | Title prefix of the customer. |
 | `NationalityCode` | string | optional | ISO 3166-1 alpha-2 country code (two letter country code) of the nationality. |
 | `BirthDate` | string | optional | Date of birth in ISO 8601 format. |
@@ -1685,6 +1692,7 @@ Updates personal information of a customer. Note that if any of the fields is le
     "CustomerId": "35d4b117-4e60-44a3-9580-c582117eff98",
     "FirstName": "John",
     "LastName": "Smith",
+    "SecondLastName": "the Second",
     "Title": "Mister",
     "NationalityCode": "US",
     "BirthDate": "2000-01-01",
@@ -1705,6 +1713,7 @@ Updates personal information of a customer. Note that if any of the fields is le
 | `CustomerId` | string | required | Unique identifier of the [Customer](#customer). |
 | `FirstName` | string | optional | New first name. |
 | `LastName` | string | optional | New last name. |
+| `SecondLastName` | string | optional | New second last name. |
 | `Title` | string [Title](#title) | optional | New title. |
 | `BirthDate` | string | optional | New birth date in ISO 8601 format. |
 | `BithPlace` | string | optional | New birth place. |
