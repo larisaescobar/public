@@ -12,8 +12,7 @@ Note: if there is no companion assigned to a booking, the registration card will
 All bookings show:
 - Arrivals: every guest that is on arrival today
 - Departures: every guest that is due to depart today
-- In House: in House are all reservations that intersect with the selected day period (so all arrival, departures and stayovers).
-- Stayovers: stay overs are counted as InHouse - Arrival - Departure
+- In House: in House are all reservations that intersect with the selected day period (all arrival, departures and stayovers).
 - Button to take you directly to the “Manage Booking” screen
 - Link to the booking on the timeline
 - Link to the Customer Profile
