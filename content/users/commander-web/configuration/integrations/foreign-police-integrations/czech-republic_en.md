@@ -42,13 +42,13 @@ Mews “Foreign Police Integration” requires:
 <a name="example-setting"></a>
 ### Example setting
 
-![Example setting](img/IntegrationDetail_en.png)
-
 - E-mail addresses, to which reminder will be send are filled in in the Email Manager field.
 - E-mail addresses, to which report will be send are listed in Recipient Email box.
 
 The recipients of this report are required to check daily that guest’s data is filled in.
 Individual email addresses need to be separated by semicolons.
+
+When setting up the integration in the Settings, please, make sure to comple all fields in the Czech Police Integration form.
 
 <a name="customer-profiles-report"></a>
 ## Customer Profiles Report in Mews
