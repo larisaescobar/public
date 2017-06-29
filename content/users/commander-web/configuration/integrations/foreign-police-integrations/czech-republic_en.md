@@ -132,9 +132,7 @@ The generated reports must be uploaded to the Police [here](https://ubyport.poli
 <a name="how-to-upload-a-report"></a>
 ### How to Upload a Report
 
-Uploading a report is easy, just click on this button to select the right report and upload it.
-
-![UbyPort](img/UbyPort.PNG)
+Uploading a report is easy, just click on the Import dat (UNL soubor) button to select the right report and upload it.
 
 <a name="statement"></a>
 ### Statement from the Police of the Czech Republic
