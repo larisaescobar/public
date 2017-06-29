@@ -32,7 +32,7 @@ Do not forget to **use a hotelId of your hotel** instead of the sample hotelId `
 
 **Important:** The initialization needs to be called only after the website is loaded, to ensure everything is ready. The easiest way to achieve this is to place it just before the closing `</body>` tag.
 
-The overlay is not visible by default - to actually show it to your users, you should bind its opening to some action (i.e. clicking on a button). Distributor can do it automatically for you, if you provide the second option - a string of comma-separated CSS selectors of elements, whose click events will be binded with opening of Distributor. The event is delegated, so you can pass selectors to elements that don't exist on the website yet.
+The overlay is not visible by default - to actually show it to your users, you should bind its opening to some action (i.e. clicking on a button). Distributor can do it automatically for you, if you provide the second option - a string of comma-separated CSS selectors of elements `open-distributor-button`, whose click events will be binded with opening of Distributor. The event is delegated, so you can pass selectors to elements that don't exist on the website yet.
 
 If you need a more specific setup for opening Distributor, or you want to call some API functions on a Distributor instance, you can provide a callback function as the second argument to the initialization call - the instance is provided as an argument to the callback.
 
