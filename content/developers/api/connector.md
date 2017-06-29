@@ -2232,6 +2232,16 @@ We consider a space occupied if there is a reservation colliding with interval 1
     
 ## Changelog
 
+#### 18th June 2017 21:30 UTC
+
+- Extended [Reservation](#reservation) with `AssignedSpaceLocked`.
+- Added [Rate Extent](#rate-extent) to [Get All Rates](#get-all-rates), added [Rate Restrictions](#rate-restrictions) to the result.
+- Added [Space Extent](#space-extent) to [Get All Spaces](#get-all-rates), added and [Space Feature](#space-feature)s and [Space Feature Assignment](#space-feature-assignment)s to the result.
+- Added [Update Reservation Interval](#update-reservation-interval) operation.
+- Added optional `ServiceId` parameter to [Charge Customer](#charge-customer) operation, so any service can be charged.
+- Added [Promotions](#promotions) to [Service](#service) and [Product](#product).
+- Extended [Customer](#customer) with `SecondLastName` and added it as a parameter to the [Add Customer](#add-customer) and [Update Customer](#update-customer).
+
 #### 13th June 2017 21:00 UTC
 
 - Introduced [Websockets](#websockets) and first use case for device command events.
