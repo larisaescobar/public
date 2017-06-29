@@ -176,13 +176,27 @@ Returns all spaces of an enterprise associated with the connector integration.
 
 ```json
 {
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Extent": {
+        "Spaces": true,
+        "SpaceCategories": true,
+        "SpaceFeatures": true
+    }
 }
 ```
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Extent` | [Space Extent](#space-extent) | optional | Extent of data to be returned. If not specified, `Spaces` and `SpaceCategories` is used as the default extent. |
+
+##### Space Extent
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Spaces` | bool | optional | Whether the response should contain spaces. |
+| `SpaceCategories` | bool | optional | Whether the response should contain space categories. |
+| `SpaceFeatures` | bool | optional | Whether the response should contain space features and their assignments. |
 
 #### Response
 
@@ -212,7 +226,20 @@ Returns all spaces of an enterprise associated with the connector integration.
             "Name": "Best Room",
             "ShortName": "BR"
         }
-    ]
+    ],
+    "SpaceFeatures": [
+        {
+            "Description": null,
+            "Id": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
+            "Name": "123"
+        }
+    ],
+    "SpaceFeatureAssignments": [
+        {
+            "SpaceFeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
+            "SpaceId": "18019693-c66f-4be8-a893-c3d89fd291cc"
+        }
+    ],
 }
 ```
 
@@ -220,6 +247,8 @@ Returns all spaces of an enterprise associated with the connector integration.
 | --- | --- | --- | --- |
 | `Spaces` | array of [Space](#space) | required | The spaces of the enterprise. |
 | `SpaceCategories` | array of [Space Category](#space-category) | required | Categories of spaces in the enterprise. |
+| `SpaceFeatures` | array of [Space Feature](#space-feature) | optional | Features of spaces in the enterprise. |
+| `SpaceFeatureAssignments` | array of [Space Feature Assignment](#space-feature-assignment) | optional | Assignments of space features to spaces. |
 
 ##### Space
 
@@ -254,6 +283,21 @@ Returns all spaces of an enterprise associated with the connector integration.
 | `Id` | string | required | Unique identifier of the category. |
 | `Name` | string | required | Name of the category. |
 | `ShortName` | string | optional | Short name (e.g. code) of the category. |
+
+##### Space Feature
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the feature. |
+| `Name` | string | required | Name of the feature. |
+| `Description` | string | optional | Description of the feature. |
+
+##### Space Feature Assignment
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `SpaceId` | string | required | Unique identifier [Space](#space). |
+| `SpaceFeatureId` | string | required | Unique identifier [Space Feature](#space-feature). |
 
 ### Get All Space Blocks
 
