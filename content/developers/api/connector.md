@@ -532,13 +532,27 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 
 ```json
 {
-    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D"
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "Extent": {
+        "Rates": true,
+        "RateGroups": true,
+        "RateRestrictions": true
+    }
 }
 ```
 
 | Property | Type | | Description |
 | --- | --- | --- | --- |
 | `AccessToken` | string | required | Access token of the client application. |
+| `Extent` | [Rate Extent](#reservation-extent) | optional | Extent of data to be returned. If not specified, `Rates` and `RateGroups` is used as the default extent. |
+
+##### Rate Extent
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Rates` | bool | optional | Whether the response should contain rates. |
+| `RateGroups` | bool | optional | Whether the response should contain rate groups. |
+| `RateRestrictions` | bool | optional | Whether the response should contain rate restrictions. |
 
 #### Response
 
@@ -560,7 +574,39 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
             "IsActive": true,
             "Name": "Default"
         }
-    ]
+    ],
+    "RateRestrictions": {
+        "DateRestrictions": [
+            {
+                "Id": "cd12a0db-1eeb-4eda-965c-229efff4bd5d",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "EndUtc": "2019-12-31T23:00:00Z",
+                "IsInverted": false,
+                "StartUtc": "2016-12-31T23:00:00Z"
+            }
+        ],
+        "EarlinessRestrictions": [
+            {
+                "Id": "0b9f74e7-3b7b-4472-a476-8ac1f01696ea",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "MaxAdvance": null,
+                "MinAdvance": "P7D"
+            }
+        ],
+        "LengthRestrictions": [
+            {
+                "Id": "c91dcd27-fd53-4bc6-bb2a-a783e39c61f1",
+                "IsInherited": true,
+                "RateId": "b7e30382-ccd2-4982-8a29-0eb8d9386e1a",
+                "EndUtc": null,
+                "MaxLength": null,
+                "MinLength": "P4D",
+                "StartUtc": null
+            }
+        ]
+    }
 }
 ```
 
@@ -568,6 +614,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 | --- | --- | --- | --- |
 | `Rates` | array of [Rate](#rate) | required | Rates of the default service. |
 | `RateGroups` | array of [Rate Group](#rate-group) | required | Rate groups of the default service. |
+| `RateRestrictions` | [Rate Restrictions](#rate-restrictions) | required | Rate restrictions of the rates. |
 
 ##### Rate
 
@@ -587,6 +634,47 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
 | `Id` | string | required | Unique identifier of the group. |
 | `IsActive` | boolean | required | Whether the rate group is still active. |
 | `Name` | string | required | Name of the rate group. |
+
+##### Rate Restrictions
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `DateRestrictions` | array of [Date Restriction](#date-restriction) | optional | The date restrictions. |
+| `EarlinessRestrictions` | array of [Earliness Restriction](#earliness-restriction) | optional | The earliness restrictions. |
+| `LengthRestrictions` | array of [Length Restriction](#length-restriction) | optional | The length restrictions. |
+
+##### Date Restriction
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the restriction. |
+| `RateId` | string | required | Unique identifier of the restricted [Rate](#rate). |
+| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
+| `IsInverted` | boolean | required | Whether restriction disallows booking in the interval (if `false` then reservations are allowed only within the interval, if `true` then reservations are not allowed within the interval).  |
+| `StartUtc` | string | required | Start of the allowed interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | required | End of the allowed interval in UTC timezone in ISO 8601 format. |
+
+##### Earliness Restriction
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the restriction. |
+| `RateId` | string | required | Unique identifier of the restricted [Rate](#rate). |
+| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
+| `MinAdvance` | string | optional | Minimal advance for reservation creation in ISO 8601 duration format. |
+| `MaxAdvance` | string | optional | Maximal advance for reservation creation in ISO 8601 duration format. |
+
+##### Length Restriction
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `Id` | string | required | Unique identifier of the restriction. |
+| `RateId` | string | required | Unique identifier of the restricted [Rate](#rate). |
+| `IsInherited` | boolean | required | Whether child rates inherit the restriction. |
+| `MinLength` | string | optional | Minimal reservation length in ISO 8601 duration format. |
+| `MaxLength` | string | optional | Maximal reservation length in ISO 8601 duration format. |
+| `StartUtc` | string | optional | Start of the restriction applicability interval in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | End of the restriction applicability interval in UTC timezone in ISO 8601 format. |
 
 ### Get Rate Pricing
 
@@ -778,6 +866,7 @@ Returns all reservations from the specified interval according to the time filte
         {
             "AdultCount": 2,
             "AssignedSpaceId": "20e00c32-d561-4008-8609-82d8aa525714",
+            "AssignedSpaceLocked": false,
             "BusinessSegmentId": null,
             "ChannelNumber": "1337614414",
             "ChannelManagerNumber": "01",
@@ -843,6 +932,7 @@ Returns all reservations from the specified interval according to the time filte
 | `EndUtc` | string | required | End of the reservation (departure) in UTC timezone in ISO 8601 format. |
 | `RequestedCategoryId` | string | required | Identifier of the requested [Space Category](#space-category). |
 | `AssignedSpaceId` | string | optional | Identifier of the assigned [Space](#space). |
+| `AssignedSpaceLocked` | bool | required | Whether the reservation is locked in the assigned [Space](#space) and cannot be moved. |
 | `BusinessSegmentId` | string | optional | Identifier of the reservation [Business Segment](#business-segment). |
 | `CompanyId` | string | optional | Identifier of the [Company](#company) on behalf of which the reservation was made. |
 | `TravelAgencyId` | string | optional | Identifier of the [Company](#company) that mediated the reservation. |
