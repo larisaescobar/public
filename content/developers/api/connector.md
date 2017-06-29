@@ -180,7 +180,7 @@ Returns all spaces of an enterprise associated with the connector integration.
     "Extent": {
         "Spaces": true,
         "SpaceCategories": true,
-        "SpaceFeatures": true
+        "SpaceFeatures": false
     }
 }
 ```
@@ -239,7 +239,7 @@ Returns all spaces of an enterprise associated with the connector integration.
             "SpaceFeatureId": "a693dd8c-21fe-4dae-b450-ea3bd9ab3bb0",
             "SpaceId": "18019693-c66f-4be8-a893-c3d89fd291cc"
         }
-    ],
+    ]
 }
 ```
 
@@ -445,14 +445,28 @@ Raturns all services offered by the enterprise.
             "Id": "fc79a518-bc69-45b8-93bd-83326201bd14",
             "IsActive": true,
             "Name": "Restaurant",
-            "StartTime": null
+            "StartTime": null,
+            "Promotions": {
+                "BeforeCheckIn": false
+                "AfterCheckIn": false
+                "DuringStay": false
+                "BeforeCheckOut": false
+                "AfterCheckOut": false
+            }
         },
         {
             "EndTime": "PT12H",
             "Id": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
             "IsActive": true,
             "Name": "Accommodation",
-            "StartTime": "PT14H"
+            "StartTime": "PT14H",
+            "Promotions": {
+                "BeforeCheckIn": false
+                "AfterCheckIn": false
+                "DuringStay": false
+                "BeforeCheckOut": false
+                "AfterCheckOut": false
+            }
         }
     ]
 }
@@ -471,6 +485,17 @@ Raturns all services offered by the enterprise.
 | `Name` | string | required | Name of the service. |
 | `StartTime` | string | optional | Default start time of the service orders in ISO 8601 duration format. |
 | `EndTime` | string | optional | Default end time of the service orders in ISO 8601 duration format. |
+| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
+
+##### Promotions
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `BeforeCheckIn` | boolean | required | Whether it can be promoted before check-in. |
+| `AfterCheckIn` | boolean | required | Whether it can be promoted after check-in. |
+| `DuringStay` | boolean | required | Whether it can be promoted during stay. |
+| `BeforeCheckOut` | boolean | required | Whether it can be promoted before check-out. |
+| `AfterCheckOut` | boolean | required | Whether it can be promoted after check-out. |
 
 ### Get All Products
 
@@ -502,7 +527,14 @@ Raturns all products offered together with the specified services.
             "IsActive": true,
             "Name": "Breakfast",
             "ServiceId": "bd26d8db-86da-4f96-9efc-e5a4654a4a94",
-            "ShortName": "BFST"
+            "ShortName": "BFST",
+            "Promotions": {
+                "BeforeCheckIn": false
+                "AfterCheckIn": false
+                "DuringStay": false
+                "BeforeCheckOut": false
+                "AfterCheckOut": false
+            }
         }
     ]
 }
@@ -521,6 +553,7 @@ Raturns all products offered together with the specified services.
 | `IsActive` | boolean | required | Whether the product is still active. |
 | `Name` | string | required | Name of the product. |
 | `ShortName` | string | required | Short name of the product. |
+| `Promotions` | [Promotions](#promotions) | required | Promotions of the service. |
 
 ### Get All Business Segments
 
@@ -581,7 +614,7 @@ Returns all rates (pricing setups) and rate groups (condition settings) of the d
     "Extent": {
         "Rates": true,
         "RateGroups": true,
-        "RateRestrictions": true
+        "RateRestrictions": false
     }
 }
 ```
@@ -1695,6 +1728,7 @@ Charges a customer, i.e. creates a new order attached to his profile with the sp
 {
     "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
     "CustomerId": "794dbb77-0a9a-4170-9fa9-62ea4bf2a56e",
+    "ServiceId": "0f7f56db-b8b3-42b0-8b53-2df4c8a87997",
     "Items": [
         {
             "Name": "Beer",
@@ -1725,6 +1759,7 @@ Charges a customer, i.e. creates a new order attached to his profile with the sp
 | --- | --- | --- | --- |
 | `AccessToken` | string | required | Access token of the client application. |
 | `CustomerId` | string | required | Identifier of the [Customer](#customer) to be charged. |
+| `ServiceId` | string | optional | Identifier of the [Service](#service) to be charged. |
 | `Items` | array of [Charge Item](#charge-item) | required | Items of the charge. |
 | `Notes` | string | optional | Additional notes of the charge. |
 
