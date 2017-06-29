@@ -10,6 +10,10 @@ At the top of the report you will see a link to print the registration cards tha
 Note: if there is no companion assigned to a booking, the registration card will print empty. So always ensure you have a guest assigned to the booking.
 
 All bookings show:
+- Arrivals: every guest that is on arrival today
+- Departures: every guest that is due to depart today
+- In House: in House are all reservations that intersect with the selected day period (so all arrival, departures and stayovers).
+- Stayovers: stay overs are counted as InHouse - Arrival - Departure
 - Button to take you directly to the “Manage Booking” screen
 - Link to the booking on the timeline
 - Link to the Customer Profile
