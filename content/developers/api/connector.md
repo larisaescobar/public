@@ -33,6 +33,7 @@ First of all, please have a look at [API Guidelines](../api.html) which describe
         - [Start Reservation](#start-reservation)
         - [Process Reservation](#process-reservation)
         - [Cancel Reservation](#cancel-reservation)
+        - [Update Reservation Interval](#update-reservation-interval)
         - [Update Reservation Space](#update-reservation-space)
         - [Update Reservation Requested Category](#update-reservation-requested-category)
         - [Add Reservation Companion](#add-reservation-companion)
@@ -1115,6 +1116,34 @@ Cancels a reservation. Succeeds only if the reservation is cancellable.
 | `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to cancel. |
 | `ChargeCancellationFee` | boolean | required | Whether cancellation fees should be charged according to rate conditions. |
 | `Notes` | string | required | Addiotional notes describing the cancellation. |
+
+#### Response
+
+Empty object.
+
+### Update Reservation Interval
+
+Updates reservation interval (start, end or both).
+
+#### Request `[PlatformAddress]/api/connector/v1/reservations/updateInterval`
+
+```json
+{
+    "AccessToken": "C66EF7B239D24632943D115EDE9CB810-EA00F8FD8294692C940F6B5A8F9453D",
+    "ReservationId": "209d984d-4985-4efb-96ec-f6591fc597bf",
+    "StartUtc": "2017-08-12T15:00:00Z",
+    "EndUtc": "2017-08-15T12:00:00Z",
+    "ChargeCancellationFee": false
+}
+```
+
+| Property | Type | | Description |
+| --- | --- | --- | --- |
+| `AccessToken` | string | required | Access token of the client application. |
+| `ReservationId` | string | required | Unique identifier of the [Reservation](#reservation) to be updated. |
+| `StartUtc` | string | optional | New reservation start in UTC timezone in ISO 8601 format. |
+| `EndUtc` | string | optional | New reservation end in UTC timezone in ISO 8601 format. |
+| `ChargeCancellationFee` | boolean | required | Whether cancellation fee should be charged for potentially cancelled nights. |
 
 #### Response
 
