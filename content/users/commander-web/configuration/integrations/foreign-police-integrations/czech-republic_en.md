@@ -48,23 +48,14 @@ Mews “Foreign Police Integration” requires:
 The recipients of this report are required to check daily that guest’s data is filled in.
 Individual email addresses need to be separated by semicolons.
 
-When setting up the integration in the Settings, please, make sure to comple all fields in the Czech Police Integration form.
+When setting up the integration in the Settings, please, make sure to complete all fields in the Czech Police Integration form.
 
 <a name="customer-profiles-report"></a>
 ## Customer Profiles Report in Mews
 
-[Customer profiles report](#report-profily-hostu) can be accessed directly from the homepage after logging in to Mews. Report shows the list of guests who are staying (or coming) in the selected time interval - depending on the selected report parameters. The correct filter for the Police report is the **1** day and the `Arrivals` mode.
+Customer profiles report can be accessed directly from the homepage after logging in to Mews. Report shows the list of guests who are staying (or coming) within the selected time interval - depending on the selected report parameters. The correct filter for the Police report is the **1** day and the `Arrivals` mode.
 
-![Customer profiles report](img/Report.png)
-
-This is an example of the Customer profiles report. It shows that `John Smith` and `Last Name` are in the room `203`, `Nicolas Cage` is accommodated in the room `106`, a companion is not filled in (reservation is for 2 persons), and the room `206` is hosted by `Mena Suvari`.
-The report further states that:
-
-- All the necessary details for `John Smith` are filled in - *the guest profile is 100% filled*.
-- For other guests, it is necessary to fill in some data. The missing fields are labelled as **Required**.
-- You need to find out who is staying in room 106 with `Nicolas Cage`.
-
-All missing (red) data should ideally be filled in during the Check-in process. If even after check-in some data is missing, it must be filled in until the report is generated - see [How the automatic reporting works](#how-everything-works). The goal is to have the report filled in at 100%.
+The report points out two missing types of data: red (required) and yellow (incomplete). All missing (red) data should ideally be filled in during the Check-in process. If even after check-in some data is missing, it must be filled in until the report is generated - see [How the automatic reporting works](#how-everything-works). The goal is to have the report filled in at 100%.
 
 ### Mandatory data
 
@@ -79,25 +70,23 @@ All missing (red) data should ideally be filled in during the Check-in process. 
 <a name="incomplete-report"></a>
 ### Incomplete report
 
-If the Customer Profiles report is not 100% filled even after all guests have arrived you may check the guests' registration cards and fill in the details accordingly. If there is no data, it means that the receptionist did not ask for it or did not review the card. You need to contact the guest and find out the details. Additionally, the reception desk is required to check all the details at check-in to ensure that this does not happen again.
+If the Customer Profiles report is not 100% filled even after all guests have arrived, you may check the guests' registration cards and fill in the details accordingly. If there is no data, it means that the receptionist did not ask for it or did not review the card. You need to contact the guest and find out the details. Additionally, the reception desk is required to check all the details at check-in to ensure that this does not happen again.
 
-A more complex problem may be with the guest in room `106`.
+When there are two or more guests staying in one room and the guests infomration is not filled in, the report may show several reservations with required fields marked in red, including name and surname.
 
-There could be several different situations:
+In such case, there are several possible scenarios:
 
  1. The second guest (companion1) will not come.
- 2. The second guest arrived but was not created in the system.
- 3. Both guests arrived, both were created in the system, both guests are on the reservation screen, yet there is a data missing.
+ 2. The second guest has arrived but was not created in the system.
+ 3. Both (all) guests arrived, both were created in the system, both guests are on the reservation screen, yet there is a data missing.
 
 #### Solution
 
  1. Manually adjust the booking to one person only and apply some fees if applicable.
  2. Create a new guest and assign him into the reservation.
- 3. First, you need to be aware of the difference between the “booking owner” and the “guest assigned” to the reservation. The owner is the one on whose behalf the reservation is created. It can even be someone who will be not accommodate in the hotel at all, just did a reservation for somebody else. The guest is someone who has arrived and who stays in the room. See picture:
+ 3. First, you need to be aware of the difference between the “booking owner” and the “guest assigned” to the reservation. The owner is the one on whose behalf the reservation is created. It can even be someone who will be not accommodated at the hotel at all, but who made a reservation for somebody else. The guest is someone who has arrived and who stays in the room.
 
-![Group module](img/GroupModule.png)
-
-This picture shows how to resolve the third case - room `106`. `Nicolas Cage` is listed as the booking owner. You need to add his companion to the room by clicking `>` (marked in red). This adds the guest to the selected room. One guest can book more rooms, however, the system will not automatically assign him to all rooms as one guest can not be physically in more than one room. Therefore, it is necessary to assign the owner during a check-in process to the reservation (make it a guest). Again, you need to set up a check-in process in a way that prevents any issues in the future.
+To resolve the third case you need to add a companion of the booking owner to the room by clicking `>` sign next to an Unassigned companion in the Group tab. This adds the guest to the selected room. One guest can book many rooms, however, the system will not automatically assign the guest to all rooms, as one guest can not be physically in more than one room. Therefore, it is necessary to assign the owner during a check-in process to the reservation (make it a guest). Again, you need to set up a check-in process in a way that prevents any issues in the future.
 
 <a name="how-everything-works"></a>
 ## How the automatic reporting works
